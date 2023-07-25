@@ -10,7 +10,7 @@ public interface IPlay {
 
     String promptForAddPassengerTeleNumber();
     String promptForBooking(String name, int id, String destination, int flightId);
-    String promptForCancelFlight();
+    String promptForCancelFlight(String destination, int flightId);
     String promptForDisplayFlight();
 
 }

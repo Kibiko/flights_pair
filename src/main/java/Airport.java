@@ -34,6 +34,10 @@ public class Airport {
         this.availableFlights.remove(flight);
     }
 
+    public void cancelFlight(int index){
+        this.availableFlights.remove(index);
+    }
+
     public void addUser(Passenger user){
         this.userbase.add(user);
     }

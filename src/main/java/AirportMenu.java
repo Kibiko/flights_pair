@@ -49,8 +49,8 @@ public class AirportMenu implements IPlay{
         return "Confirmation booked for " + name + ", " + passengerId + " for " +destination + ", "+flightId;
     }
 
-    public String promptForCancelFlight() {
-        return "Confirming cancellation for " + this.destination + ", " + this.flightId;
+    public String promptForCancelFlight(String destination, int flightId) {
+        return "Confirming cancellation for " + destination + ", " + flightId;
     }
 
     public String promptForDisplayFlight() {

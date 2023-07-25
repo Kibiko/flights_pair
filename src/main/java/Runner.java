@@ -76,6 +76,19 @@ public class Runner {
 
                     airport.bookUser(new Passenger(passengerName, teleNumber, passengerId),new Flight(destination, flightId));
                     System.out.println(terminal.promptForBooking(passengerName,passengerId,destination,flightId));
+                    break;
+                case 5:
+                    System.out.println(terminal.promptForDisplayFlight());
+                    int count = 1;
+                    for(Flight flight : airport.getAvailableFlights()){
+                        System.out.println(count + " . " +flight.getDestination() +", " +flight.getId());
+                        count ++;
+                    }
+                    int choice = scanner.nextInt();
+                    scanner.nextLine();
+                    airport.cancelFlight(choice -1);
+                    break;
+
 
             }
 
