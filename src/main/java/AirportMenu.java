@@ -1,11 +1,6 @@
 public class AirportMenu implements IPlay{
 
     private boolean running;
-    private String name;
-    private String teleNumber;
-    private int passengerId;
-    private String destination;
-    private int flightId;
 
     public boolean isRunning() {
         return this.running;

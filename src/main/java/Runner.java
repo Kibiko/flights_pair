@@ -16,6 +16,9 @@ public class Runner {
         int passengerId;
         String destination;
         int flightId;
+        int count;
+        int choice;
+        int choice2;
 
         IPlay terminal = new AirportMenu();
 
@@ -57,35 +60,35 @@ public class Runner {
                     airport.addUser(new Passenger(passengerName, teleNumber, passengerId));
                     break;
                 case 4:
-                    int count2 = 1;
+                    count = 1;
                     for (Passenger passenger : airport.getUserbase()){
-                        System.out.println(count2 + " . " +passenger.getName() +", " +passenger.getTeleNumber() +", " +passenger.getId());
-                        count2 ++;
+                        System.out.println(count + " . " +passenger.getName() +", " +passenger.getTeleNumber() +", " +passenger.getId());
+                        count ++;
 
                     }
 
-                    int choice2 = scanner.nextInt();
+                    choice = scanner.nextInt();
                     scanner.nextLine();
 
                     System.out.println(terminal.promptForDisplayFlight());
-                    int count3 = 1;
-                    for(Flight flight : airport.getAvailableFlights()){
-                        System.out.println(count3 + " . " +flight.getDestination() +", " +flight.getId());
-                        count3 ++;
-                    }
-                    int choice3 = scanner.nextInt();
-                    scanner.nextLine();
-                    airport.bookUser(airport.getUserbase().get(choice2 - 1),airport.getAvailableFlights().get(choice3 -1) );
-                    break;
-
-                case 5:
-                    System.out.println(terminal.promptForDisplayFlight());
-                    int count = 1;
+                    count = 1;
                     for(Flight flight : airport.getAvailableFlights()){
                         System.out.println(count + " . " +flight.getDestination() +", " +flight.getId());
                         count ++;
                     }
-                    int choice = scanner.nextInt();
+                    choice2 = scanner.nextInt();
+                    scanner.nextLine();
+                    airport.bookUser(airport.getUserbase().get(choice - 1),airport.getAvailableFlights().get(choice2 -1) );
+                    break;
+
+                case 5:
+                    System.out.println(terminal.promptForDisplayFlight());
+                    count = 1;
+                    for(Flight flight : airport.getAvailableFlights()){
+                        System.out.println(count + " . " +flight.getDestination() +", " +flight.getId());
+                        count ++;
+                    }
+                    choice = scanner.nextInt();
                     scanner.nextLine();
                     airport.cancelFlight(choice -1);
                     break;
