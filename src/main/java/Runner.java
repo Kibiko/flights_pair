@@ -57,26 +57,27 @@ public class Runner {
                     airport.addUser(new Passenger(passengerName, teleNumber, passengerId));
                     break;
                 case 4:
-                    System.out.println(terminal.promptForAddPassengerName());
-                    passengerName = scanner.nextLine();
+                    int count2 = 1;
+                    for (Passenger passenger : airport.getUserbase()){
+                        System.out.println(count2 + " . " +passenger.getName() +", " +passenger.getTeleNumber() +", " +passenger.getId());
+                        count2 ++;
 
-                    System.out.println(terminal.promptForAddPassengerTeleNumber());
-                    teleNumber = scanner.nextLine();
+                    }
 
-                    System.out.println(terminal.promptForAddPassengerId());
-                    passengerId = scanner.nextInt();
+                    int choice2 = scanner.nextInt();
                     scanner.nextLine();
 
-                    System.out.println(terminal.promptForAddFlightDestination());
-                    destination = scanner.nextLine();
-
-                    System.out.println(terminal.promptForAddFlightId());
-                    flightId = scanner.nextInt();
+                    System.out.println(terminal.promptForDisplayFlight());
+                    int count3 = 1;
+                    for(Flight flight : airport.getAvailableFlights()){
+                        System.out.println(count3 + " . " +flight.getDestination() +", " +flight.getId());
+                        count3 ++;
+                    }
+                    int choice3 = scanner.nextInt();
                     scanner.nextLine();
-
-                    airport.bookUser(new Passenger(passengerName, teleNumber, passengerId),new Flight(destination, flightId));
-                    System.out.println(terminal.promptForBooking(passengerName,passengerId,destination,flightId));
+                    airport.bookUser(airport.getUserbase().get(choice2 - 1),airport.getAvailableFlights().get(choice3 -1) );
                     break;
+
                 case 5:
                     System.out.println(terminal.promptForDisplayFlight());
                     int count = 1;
